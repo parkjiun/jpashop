@@ -13,6 +13,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
+import javax.persistence.ManyToMany;
 
 @Entity
 @Getter
@@ -31,5 +32,6 @@ public abstract class Item {
 
     private int stockQuantity;
 
+    @ManyToMany
     private List<Category> categories = new ArrayList<>();
 }
