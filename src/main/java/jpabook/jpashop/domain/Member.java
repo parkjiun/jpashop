@@ -18,7 +18,7 @@ import javax.persistence.OneToMany;
 public class Member {
     @Id
     @GeneratedValue
-    @Column(name = "member_id")
+    @Column(name = "member_id") // 변수 이름인 id가 아니라 member_id로 컬럼을 생성하기 위해
     private Long id;
 
     private String name;
@@ -26,6 +26,7 @@ public class Member {
     @Embedded
     private Address address;
 
-    @OneToMany(mappedBy = "member")  // 나는 order 테이블에 있는 member 필드에 mapping 된 거울일뿐이다.
+    @OneToMany(mappedBy = "member")  // order 테이블에 있는 member 필드에 mapping 된 거울일뿐(읽기 전용)
+    // 여기 값을 변경한다고 order의 member가 업데이트 되지 않음
     private List<Order> orders = new ArrayList<>();
 }
