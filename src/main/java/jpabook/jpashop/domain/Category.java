@@ -27,10 +27,10 @@ public class Category {
 
     private String name;
 
-    @ManyToMany
+    @ManyToMany // 실무에선 이런 짓 할 수가 없음
     @JoinTable(name = "category_item",
             joinColumns = @JoinColumn(name = "category_id"),
-            inverseJoinColumns = @JoinColumn(name = "item_id"))
+            inverseJoinColumns = @JoinColumn(name = "item_id")) // category와 item의 다대다 관계를 관계형 DB에서 실현하기 위한 테이블
     private List<Item> items = new ArrayList<>();
 
     @ManyToOne

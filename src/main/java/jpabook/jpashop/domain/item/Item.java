@@ -19,7 +19,7 @@ import javax.persistence.ManyToMany;
 @Getter
 @Setter
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
-@DiscriminatorColumn(name = "dtype")
+@DiscriminatorColumn(name = "dtype")    // SINGLE_TABLE이니까 필요한 값 (M,B,A / Movie, Book, Album)
 public abstract class Item {
     @Id
     @GeneratedValue
